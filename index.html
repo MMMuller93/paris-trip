@@ -3243,7 +3243,8 @@ async function loadGPhotos(el){
 }
 function initGPhotos(){
   if(!CAN_RELAY||!("IntersectionObserver" in window)) return;
-  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ io.unobserve(en.target); loadGPhotos(en.target); } }),{rootMargin:"400px 0px"});
+  // kept on window so the browser does not garbage-collect the observer (it did on the live page)
+  const io=window.__gpIO=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ io.unobserve(en.target); loadGPhotos(en.target); } }),{rootMargin:"400px 0px"});
   document.querySelectorAll(".card .gal, .ogal .gal, .scard .sgal").forEach(g=>io.observe(g));
 }
 
