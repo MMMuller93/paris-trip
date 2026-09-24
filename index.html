@@ -1175,6 +1175,40 @@ html.live body.lock .mapcol{z-index:3000!important}
 .trmodes button{padding:0 4px;font-size:14px;min-width:0}
 @media (max-width:340px){.trmodes button{font-size:13px}}
 
+
+/* ---------- RUNS tab ---------- */
+.runwrap{max-width:760px;margin:0 auto}
+.runmapwrap{margin:16px 0 14px}
+.runmap{height:360px;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+@media (max-width:640px){.runmap{height:300px}}
+.runlegend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+.lg{display:inline-block;vertical-align:middle;margin-right:5px}
+.lg.route{width:18px;height:4px;border-radius:2px;background:#0B7285}
+.lg.cross,.lg.light{width:9px;height:9px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.lg.cross{background:#F59F00}.lg.light{background:#E03131}
+.runnote{background:var(--soft);border-radius:14px;padding:12px 15px;margin:0 0 14px;font-size:14px;line-height:1.5}
+.runnote h4{margin:0 0 6px;font:700 14.5px var(--sans)}
+.runnote ul{margin:0;padding-left:18px}.runnote li{margin:0 0 5px}.runnote p{margin:0}
+.runlist{display:flex;flex-direction:column;gap:12px;margin:0 0 14px}
+.runcard{border-radius:16px;background:var(--surface);box-shadow:0 0 0 1px var(--line);padding:14px 15px;scroll-margin-top:80px}
+.runcard.on{box-shadow:0 0 0 2px #0B7285}
+.runhd{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.runhd h3{margin:0;font:700 17px/1.3 var(--sans)}
+.runtag{display:inline-block;margin-top:3px;font-size:12.5px;color:var(--muted)}
+.runshow{flex:none;height:32px;padding:0 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 13px var(--sans);cursor:pointer}
+.runcard.on .runshow{background:#0B7285;border-color:#0B7285;color:#fff}
+.runstats{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.runstats span{font-size:13px;padding:5px 10px;border-radius:999px;background:var(--soft);color:var(--ink)}
+.runstats span.good{background:rgba(11,114,133,.14);color:#0B7285}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .runstats span.good{color:#66D9E8}}
+:root[data-theme="dark"] .runstats span.good{color:#66D9E8}
+.runwhy{margin:0 0 6px;font-size:14.5px;line-height:1.5}
+.runstops{margin:0 0 6px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.runtips{margin:0 0 10px;padding-left:18px;font-size:13.5px;line-height:1.5}
+.rungo{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-radius:12px;background:#0B7285;color:#fff;font:700 14px var(--sans);text-decoration:none}
+.runsrc{font-size:12.5px;color:var(--muted);margin:0 0 20px}
+.runhomepin{width:26px;height:26px;border-radius:50%;background:#1D2330;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);display:grid;place-items:center;font-size:13px;transform:translate(-50%,-50%)}
+
 </style>
 </head>
 <body>
@@ -1187,7 +1221,7 @@ html.live body.lock .mapcol{z-index:3000!important}
     <nav class="lines" aria-label="Days"><a href="#day1"><span class="rnd" style="--c:#D6336C">1</span><span>Montmartre, then jazz<small>Day 1</small></span></a><a href="#day2"><span class="rnd" style="--c:#E8590C">2</span><span>Marais, Notre-Dame and Saint-Germain<small>Day 2</small></span></a><a href="#day3"><span class="rnd" style="--c:#6741D9">3</span><span>Louvre, Arc de Triomphe and Eiffel Tower<small>Day 3</small></span></a><a href="#day4"><span class="rnd" style="--c:#0C8599">4</span><span>Departure<small>Day 4</small></span></a></nav>
   </div>
 </header>
-<nav class="bar" aria-label="Sections"><div class="wrap" id="bar"><div class="tabs" role="tablist"><a role="tab" href="#plan" data-tab="plan" aria-selected="true">Plan</a><a role="tab" href="#choose" data-tab="choose" aria-selected="false">Choose</a><a role="tab" href="#diary" data-tab="diary" aria-selected="false">Diary</a><a role="tab" href="#gallery" data-tab="gallery" aria-selected="false">Gallery</a><a role="tab" href="#ask" data-tab="ask" aria-selected="false">Ask</a><a role="tab" href="#translate" data-tab="translate" aria-selected="false">Translate</a></div><button type="button" class="briefbtn js-only" data-brief="1"><span class="rnd"><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg></span>Briefing</button><a class="plan" href="#plan" data-sec="plan"><span class="rnd"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg></span>Map</a><a class="daychip" href="#day1" data-sec="day1"><span class="rnd" style="--c:#D6336C">1</span>Fri</a><a class="daychip" href="#day2" data-sec="day2"><span class="rnd" style="--c:#E8590C">2</span>Sat</a><a class="daychip" href="#day3" data-sec="day3"><span class="rnd" style="--c:#6741D9">3</span>Sun</a><a class="daychip" href="#day4" data-sec="day4"><span class="rnd" style="--c:#0C8599">4</span>Mon</a></div></nav>
+<nav class="bar" aria-label="Sections"><div class="wrap" id="bar"><div class="tabs" role="tablist"><a role="tab" href="#plan" data-tab="plan" aria-selected="true">Plan</a><a role="tab" href="#choose" data-tab="choose" aria-selected="false">Choose</a><a role="tab" href="#diary" data-tab="diary" aria-selected="false">Diary</a><a role="tab" href="#gallery" data-tab="gallery" aria-selected="false">Gallery</a><a role="tab" href="#ask" data-tab="ask" aria-selected="false">Ask</a><a role="tab" href="#translate" data-tab="translate" aria-selected="false">Translate</a><a role="tab" href="#run" data-tab="run" aria-selected="false">Runs</a></div><button type="button" class="briefbtn js-only" data-brief="1"><span class="rnd"><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg></span>Briefing</button><a class="plan" href="#plan" data-sec="plan"><span class="rnd"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg></span>Map</a><a class="daychip" href="#day1" data-sec="day1"><span class="rnd" style="--c:#D6336C">1</span>Fri</a><a class="daychip" href="#day2" data-sec="day2"><span class="rnd" style="--c:#E8590C">2</span>Sat</a><a class="daychip" href="#day3" data-sec="day3"><span class="rnd" style="--c:#6741D9">3</span>Sun</a><a class="daychip" href="#day4" data-sec="day4"><span class="rnd" style="--c:#0C8599">4</span>Mon</a></div></nav>
 <main class="wrap">
   <section class="plan" id="plan" data-panel="plan">
     <a class="todaybtn" id="todaybtn" href="#day1" hidden><svg class="ico"><use href="#i-cal"/></svg><span></span></a>
@@ -2253,6 +2287,40 @@ html.live body.lock .mapcol{z-index:3000!important}
       </details>
     </div>
   </section>
+  <section class="tabpanel" id="run" data-panel="run">
+    <div class="runwrap">
+      <h2 class="eyebrowless">Runs</h2>
+      <p class="intro">Loops from the Airbnb picked so you can keep running: along the water, with as few roads to cross as possible. Every crossing below is counted from OpenStreetMap along the exact route.</p>
+      <div class="runmapwrap js-only"><div id="runmap" class="m runmap" role="region" aria-label="Map of running routes"></div>
+        <p class="runlegend"><span class="lg route"></span>Selected route <span class="lg cross"></span>Road crossing <span class="lg light"></span>Traffic lights</p></div>
+      <div class="runnote"><h4>Before you go</h4><ul>
+        <li><b>Sunrise</b> is about 7:40am, so early runs start in the dark. The quays and canal are lit.</li>
+        <li><b>Saturday:</b> the Pope's open-air Mass is on Place de la Concorde (3 to about 4:30pm), right next to the Tuileries end of the Seine run. Pick a canal run that day.</li>
+        <li><b>Sunday:</b> the canal quays are closed to cars 10am to 8pm, so the canal runs are calmest then.</li>
+        <li><b>Monday:</b> you leave by 8am for the flight, so only the easy 3K fits.</li>
+      </ul></div>
+      <div class="runlist">
+<article class="runcard" data-run="seine"><div class="runhd"><div><h3>Seine car-free quays</h3><span class="runtag">Most non-stop · River</span></div><button type="button" class="runshow js-only" data-runshow="seine">Show on map</button></div>
+<div class="runstats"><span><b>7.6 km</b> round trip</span><span class="good"><b>4.3 km</b> non-stop</span><span><b>30</b> road crossings, 14 with lights</span></div>
+<p class="runwhy">Through the Marais to Hôtel de Ville, then down to the riverside and west along the car-free quay past the Louvre to the Tuileries and back.</p><p class="runstops"><b>Where you'll stop:</b> All the road crossings are in the Marais on the way there and back. Once you&#x27;re down on the quay there are no roads until you climb back up.</p><ul class="runtips"><li>Flat, smooth and wide, with the Louvre and the bridges alongside</li><li>Want more? The car-free quay also runs east of Hôtel de Ville towards Pont de Sully</li><li>Best early: by late morning it fills with walkers</li></ul>
+<a class="rungo" href="https://www.google.com/maps/dir/?api=1&amp;origin=45%20Rue%20Volta%2C%2075003%20Paris&amp;destination=45%20Rue%20Volta%2C%2075003%20Paris&amp;waypoints=48.8598%2C2.3564%7C48.85592%2C2.35063%7C48.85781%2C2.34446%7C48.85894%2C2.33856%7C48.86001%2C2.33285%7C48.85959%2C2.33465%7C48.85863%2C2.34065%7C48.85727%2C2.34623&amp;travelmode=walking" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Open in Google Maps</a></article>
+<article class="runcard" data-run="ourcq"><div class="runhd"><div><h3>Canal to Parc de la Villette</h3><span class="runtag">Longest · Canal</span></div><button type="button" class="runshow js-only" data-runshow="ourcq">Show on map</button></div>
+<div class="runstats"><span><b>9.3 km</b> round trip</span><span class="good"><b>1.8 km</b> non-stop</span><span><b>24</b> road crossings, 15 with lights</span></div>
+<p class="runwhy">Up the east bank of Canal Saint-Martin, along the Bassin de la Villette and the Canal de l&#x27;Ourcq towpath to Parc de la Villette, then back down the other bank.</p><p class="runstops"><b>Where you'll stop:</b> The stops are road bridges over the canal, the big junction at Stalingrad under the elevated Métro, and République. The towpath to Parc de la Villette is the longest unbroken stretch.</p><ul class="runtips"><li>Sunday: the canal quays are closed to cars 10am to 8pm, and the Bassin de la Villette area from 10am</li><li>Iron footbridges and locks along the way; you run beside the water, not over it</li><li>The east side of the Bassin is a wide waterside promenade</li></ul>
+<a class="rungo" href="https://www.google.com/maps/dir/?api=1&amp;origin=45%20Rue%20Volta%2C%2075003%20Paris&amp;destination=45%20Rue%20Volta%2C%2075003%20Paris&amp;waypoints=48.8698%2C2.36637%7C48.87645%2C2.36449%7C48.87975%2C2.36744%7C48.8881%2C2.37854%7C48.89125%2C2.38481%7C48.89013%2C2.38338%7C48.88758%2C2.37866%7C48.88435%2C2.37207&amp;travelmode=walking" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Open in Google Maps</a></article>
+<article class="runcard" data-run="canal"><div class="runhd"><div><h3>Canal Saint-Martin and Bassin de la Villette</h3><span class="runtag">Classic · Canal</span></div><button type="button" class="runshow js-only" data-runshow="canal">Show on map</button></div>
+<div class="runstats"><span><b>7.6 km</b> round trip</span><span class="good"><b>1.1 km</b> non-stop</span><span><b>24</b> road crossings, 15 with lights</span></div>
+<p class="runwhy">Up the east bank of Canal Saint-Martin past the locks and footbridges, round the Bassin de la Villette and back down the west bank.</p><p class="runstops"><b>Where you'll stop:</b> Same crossings as the longer canal run, minus the towpath beyond the basin.</p><ul class="runtips"><li>Sunday: the canal quays are closed to cars 10am to 8pm</li><li>Turn back early at any lock to shorten it</li><li>Quai de Valmy was rebuilt in 2025–26 with wider pavements</li></ul>
+<a class="rungo" href="https://www.google.com/maps/dir/?api=1&amp;origin=45%20Rue%20Volta%2C%2075003%20Paris&amp;destination=45%20Rue%20Volta%2C%2075003%20Paris&amp;waypoints=48.8698%2C2.36637%7C48.87645%2C2.36449%7C48.87975%2C2.36744%7C48.8881%2C2.37854%7C48.88758%2C2.37866%7C48.88435%2C2.37207%7C48.87967%2C2.36757%7C48.87655%2C2.36501&amp;travelmode=walking" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Open in Google Maps</a></article>
+<article class="runcard" data-run="short"><div class="runhd"><div><h3>Easy canal 3K</h3><span class="runtag">Short · Canal</span></div><button type="button" class="runshow js-only" data-runshow="short">Show on map</button></div>
+<div class="runstats"><span><b>2.9 km</b> round trip</span><span class="good"><b>1.2 km</b> non-stop</span><span><b>12</b> road crossings, 4 with lights</span></div>
+<p class="runwhy">A quick loop: over to the canal at République, up to the Récollets lock and back down the other bank.</p><p class="runstops"><b>Where you'll stop:</b> The République crossing is the busy one. The canal stretch is short but calm.</p><ul class="runtips"><li>Good for a shake-out on arrival day</li><li>Repeat the canal part to make it longer without adding crossings</li></ul>
+<a class="rungo" href="https://www.google.com/maps/dir/?api=1&amp;origin=45%20Rue%20Volta%2C%2075003%20Paris&amp;destination=45%20Rue%20Volta%2C%2075003%20Paris&amp;waypoints=48.8698%2C2.36637%7C48.87299%2C2.36397%7C48.87395%2C2.36321%7C48.87395%2C2.36338%7C48.87093%2C2.36569%7C48.86985%2C2.36664&amp;travelmode=walking" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Open in Google Maps</a></article>
+      </div>
+      <div class="runnote"><h4>Want hills?</h4><p>Parc des Buttes-Chaumont is the hilliest park in Paris, about 2.5 km northeast of the Airbnb past the top of the canal. Loop its car-free inner roads and paths for real climbs. Open 7am to 9pm in September. Getting there means some city streets, so it isn't mapped here.</p></div>
+      <p class="runsrc">Routes follow OpenStreetMap footpaths. Google Maps may choose slightly different streets; the map here shows the waterside paths to stay on.</p>
+    </div>
+  </section>
   <section class="tabpanel" id="ask" data-panel="ask">
     <div class="askhead"><h2 class="eyebrowless">Ask Claude</h2><button type="button" class="chatclear" data-chatclear>Clear</button></div>
     <p class="intro" id="askintro">Ask anything about the trip, or have Claude make changes: pick an option, swap Days 1 to 3, mark things done or booked, star saved places, or add a diary note.</p>
@@ -2865,7 +2933,7 @@ function initV7(){
 }
 
 /* ---------- tabs ---------- */
-const TABS=["plan","choose","diary","gallery","ask","translate"]; let planY=0, curTab="plan";
+const TABS=["plan","choose","diary","gallery","ask","translate","run"]; let planY=0, curTab="plan";
 function showTab(name,opts={}){
   if(!TABS.includes(name)) name="plan";
   if(curTab==="plan"&&name!=="plan") planY=scrollY;
@@ -3755,6 +3823,45 @@ window.TR_DEBUG=TR;
 const go=()=>{ if(document.body.dataset.curtab==="translate") init(); };
 new MutationObserver(go).observe(document.body,{attributes:true,attributeFilter:["data-curtab"]}); go();
 addEventListener("pagehide",()=>{ stopRec(); if(TTS) try{speechSynthesis.cancel()}catch(e){} });
+})();
+
+</script>
+<script>
+/* ---------- RUNS tab ---------- */
+(function(){
+const RUNS=[{"k":"seine","geo":[[48.86678,2.3581],[48.86585,2.3575],[48.86575,2.35757],[48.86537,2.35732],[48.86511,2.35835],[48.86359,2.35745],[48.86334,2.35816],[48.86242,2.35749],[48.86185,2.35696],[48.8614,2.35785],[48.86122,2.35806],[48.86012,2.35692],[48.86016,2.35676],[48.85944,2.35609],[48.85948,2.35593],[48.85941,2.35608],[48.85935,2.35603],[48.85851,2.35515],[48.85842,2.35524],[48.85744,2.35426],[48.85526,2.35302],[48.85513,2.35277],[48.85508,2.3529],[48.85493,2.3529],[48.85475,2.35329],[48.85465,2.35335],[48.85459,2.35349],[48.85467,2.35359],[48.85428,2.35446],[48.85592,2.35063],[48.85649,2.34901],[48.85781,2.34419],[48.85781,2.34446],[48.85781,2.34419],[48.85833,2.34233],[48.85873,2.34029],[48.85935,2.3358],[48.86029,2.33136],[48.86057,2.33049],[48.86029,2.33136],[48.85935,2.3358],[48.85873,2.34029],[48.85833,2.34233],[48.85781,2.34419],[48.85781,2.34446],[48.85781,2.34419],[48.85649,2.34901],[48.85592,2.35063],[48.85428,2.35446],[48.85467,2.35359],[48.85459,2.35349],[48.85465,2.35335],[48.85475,2.35329],[48.85493,2.3529],[48.85508,2.3529],[48.85513,2.35277],[48.85526,2.35302],[48.85744,2.35426],[48.85842,2.35524],[48.85851,2.35515],[48.85935,2.35603],[48.85941,2.35608],[48.85948,2.35593],[48.85944,2.35609],[48.86016,2.35676],[48.86012,2.35692],[48.86122,2.35806],[48.8614,2.35785],[48.86185,2.35696],[48.86242,2.35749],[48.86334,2.35816],[48.86359,2.35745],[48.86511,2.35835],[48.86537,2.35732],[48.86575,2.35757],[48.86585,2.3575],[48.86678,2.3581]],"pts":[[48.86609,2.35765],[48.8658,2.35753],[48.86496,2.35833],[48.86125,2.36777],[48.86288,2.35781],[48.86243,2.35748],[48.86187,2.35697],[48.86059,2.35738],[48.86014,2.35674],[48.85939,2.35606],[48.85899,2.35565],[48.85853,2.35517],[48.85748,2.35433],[48.85693,2.35401],[48.85524,2.3529],[48.85519,2.35283],[48.85693,2.35401],[48.85748,2.35433],[48.85844,2.3552],[48.85899,2.35565],[48.85939,2.35606],[48.86014,2.35674],[48.86059,2.35738],[48.86187,2.35697],[48.86243,2.35748],[48.86288,2.35781],[48.86125,2.36777],[48.86496,2.35833],[48.8658,2.35753],[48.86609,2.35765]],"sig":[[48.8658,2.35753],[48.86496,2.35833],[48.86187,2.35697],[48.86014,2.35674],[48.85853,2.35517],[48.85693,2.35401],[48.85524,2.3529],[48.85519,2.35283],[48.85693,2.35401],[48.85844,2.3552],[48.86014,2.35674],[48.86187,2.35697],[48.86496,2.35833],[48.8658,2.35753]]},{"k":"ourcq","geo":[[48.86678,2.3581],[48.86741,2.35852],[48.86802,2.35875],[48.86796,2.35908],[48.86831,2.35923],[48.86823,2.35972],[48.86846,2.3598],[48.86825,2.36114],[48.86831,2.36117],[48.86835,2.36257],[48.86851,2.36287],[48.86844,2.36319],[48.86858,2.36318],[48.86908,2.36434],[48.86977,2.36638],[48.87176,2.3647],[48.8718,2.36475],[48.87287,2.36391],[48.87299,2.36397],[48.87292,2.36383],[48.8738,2.36312],[48.8739,2.36308],[48.87395,2.36321],[48.87398,2.36309],[48.87416,2.36302],[48.87462,2.36303],[48.87494,2.36319],[48.87645,2.36449],[48.87643,2.36437],[48.87752,2.36534],[48.87776,2.36534],[48.87775,2.36552],[48.87764,2.36555],[48.8776,2.36567],[48.87775,2.36553],[48.87846,2.36614],[48.87848,2.36628],[48.87974,2.36725],[48.87975,2.36744],[48.87979,2.36737],[48.87991,2.36747],[48.88004,2.36733],[48.88045,2.36774],[48.88055,2.36796],[48.88233,2.36955],[48.88219,2.36996],[48.88254,2.36988],[48.88274,2.37053],[48.88327,2.37002],[48.88355,2.37005],[48.88384,2.37052],[48.88399,2.37035],[48.88424,2.37087],[48.88455,2.37073],[48.88811,2.37793],[48.88805,2.37798],[48.88818,2.37824],[48.88806,2.37845],[48.8881,2.37854],[48.88835,2.37827],[48.88865,2.37889],[48.88871,2.37886],[48.88881,2.37905],[48.88847,2.37948],[48.88856,2.37938],[48.89151,2.38535],[48.89126,2.3848],[48.8912,2.38469],[48.89081,2.38475],[48.89161,2.38635],[48.89185,2.3871],[48.89208,2.38733],[48.89192,2.3868],[48.89208,2.38733],[48.89185,2.3871],[48.89161,2.38635],[48.8883,2.37971],[48.88838,2.37958],[48.888,2.37993],[48.88755,2.37897],[48.88766,2.37884],[48.88431,2.37211],[48.88435,2.37207],[48.88431,2.37211],[48.8839,2.3713],[48.88304,2.37059],[48.88299,2.37035],[48.88274,2.37053],[48.88254,2.36988],[48.88219,2.36996],[48.88233,2.36955],[48.88055,2.36796],[48.88045,2.36774],[48.88003,2.36732],[48.87991,2.36747],[48.87979,2.36737],[48.87958,2.36767],[48.87725,2.36575],[48.87747,2.36565],[48.87738,2.36575],[48.87727,2.36571],[48.87655,2.36501],[48.87462,2.36343],[48.874,2.36351],[48.87395,2.36338],[48.874,2.36351],[48.87392,2.3636],[48.87104,2.3658],[48.87093,2.36569],[48.871,2.36583],[48.87092,2.36591],[48.86988,2.36673],[48.86908,2.36434],[48.86859,2.3632],[48.86844,2.36319],[48.86851,2.36287],[48.86835,2.36257],[48.86831,2.36117],[48.86825,2.36114],[48.86846,2.3598],[48.86823,2.35972],[48.86831,2.35923],[48.86796,2.35908],[48.86802,2.35875],[48.86741,2.35852],[48.86678,2.3581]],"pts":[[48.86697,2.35822],[48.86736,2.35849],[48.86793,2.35907],[48.86833,2.35976],[48.86847,2.363],[48.8697,2.36623],[48.87757,2.36532],[48.87777,2.36548],[48.87985,2.36743],[48.88282,2.37048],[48.88877,2.37898],[48.88861,2.37932],[48.88822,2.37971],[48.88797,2.37986],[48.88288,2.37045],[48.88003,2.36732],[48.87757,2.36601],[48.87725,2.36575],[48.8697,2.36623],[48.86847,2.363],[48.86833,2.35976],[48.86793,2.35907],[48.86736,2.35849],[48.86697,2.35822]],"sig":[[48.86847,2.363],[48.8697,2.36623],[48.87757,2.36532],[48.87777,2.36548],[48.87985,2.36743],[48.88282,2.37048],[48.88877,2.37898],[48.88861,2.37932],[48.88822,2.37971],[48.88288,2.37045],[48.88003,2.36732],[48.87757,2.36601],[48.87725,2.36575],[48.8697,2.36623],[48.86847,2.363]]},{"k":"canal","geo":[[48.86678,2.3581],[48.86741,2.35852],[48.86802,2.35875],[48.86796,2.35908],[48.86831,2.35923],[48.86823,2.35972],[48.86846,2.3598],[48.86825,2.36114],[48.86831,2.36117],[48.86835,2.36257],[48.86851,2.36287],[48.86844,2.36319],[48.86858,2.36318],[48.86908,2.36434],[48.86977,2.36638],[48.87176,2.3647],[48.8718,2.36475],[48.87287,2.36391],[48.87299,2.36397],[48.87292,2.36383],[48.8738,2.36312],[48.8739,2.36308],[48.87395,2.36321],[48.87398,2.36309],[48.87439,2.363],[48.87494,2.36319],[48.87752,2.36534],[48.87765,2.36528],[48.8778,2.36537],[48.8776,2.36567],[48.87775,2.36553],[48.87846,2.36614],[48.87848,2.36628],[48.87974,2.36725],[48.87975,2.36744],[48.87979,2.36737],[48.87991,2.36747],[48.88004,2.36733],[48.88045,2.36774],[48.88055,2.36796],[48.88233,2.36955],[48.88219,2.36996],[48.88254,2.36988],[48.88274,2.37053],[48.88327,2.37002],[48.88355,2.37005],[48.88384,2.37052],[48.88399,2.37035],[48.88424,2.37087],[48.88455,2.37073],[48.88811,2.37793],[48.88805,2.37798],[48.88818,2.37824],[48.88806,2.37845],[48.8881,2.37854],[48.88835,2.37827],[48.88865,2.37889],[48.88871,2.37886],[48.88881,2.37905],[48.888,2.37993],[48.88755,2.37897],[48.88766,2.37884],[48.88431,2.37211],[48.88435,2.37207],[48.88431,2.37211],[48.8839,2.3713],[48.88304,2.37059],[48.88299,2.37035],[48.88274,2.37053],[48.88254,2.36988],[48.88219,2.36996],[48.88233,2.36955],[48.88055,2.36796],[48.88045,2.36774],[48.88003,2.36732],[48.87991,2.36747],[48.87979,2.36737],[48.87958,2.36767],[48.87725,2.36575],[48.87747,2.36565],[48.87738,2.36575],[48.87727,2.36571],[48.87476,2.3635],[48.87441,2.3634],[48.874,2.36351],[48.87395,2.36338],[48.874,2.36351],[48.87392,2.3636],[48.87104,2.3658],[48.87093,2.36569],[48.871,2.36583],[48.87092,2.36591],[48.86988,2.36673],[48.86908,2.36434],[48.86859,2.3632],[48.86844,2.36319],[48.86851,2.36287],[48.86835,2.36257],[48.86831,2.36117],[48.86825,2.36114],[48.86846,2.3598],[48.86823,2.35972],[48.86831,2.35923],[48.86796,2.35908],[48.86802,2.35875],[48.86741,2.35852],[48.86678,2.3581]],"pts":[[48.86697,2.35822],[48.86736,2.35849],[48.86793,2.35907],[48.86833,2.35976],[48.86847,2.363],[48.8697,2.36623],[48.87757,2.36532],[48.87777,2.36548],[48.87985,2.36743],[48.88282,2.37048],[48.88877,2.37898],[48.88861,2.37932],[48.88822,2.37971],[48.88797,2.37986],[48.88288,2.37045],[48.88003,2.36732],[48.87757,2.36601],[48.87725,2.36575],[48.8697,2.36623],[48.86847,2.363],[48.86833,2.35976],[48.86793,2.35907],[48.86736,2.35849],[48.86697,2.35822]],"sig":[[48.86847,2.363],[48.8697,2.36623],[48.87757,2.36532],[48.87777,2.36548],[48.87985,2.36743],[48.88282,2.37048],[48.88877,2.37898],[48.88861,2.37932],[48.88822,2.37971],[48.88288,2.37045],[48.88003,2.36732],[48.87757,2.36601],[48.87725,2.36575],[48.8697,2.36623],[48.86847,2.363]]},{"k":"short","geo":[[48.86678,2.3581],[48.86741,2.35852],[48.86802,2.35875],[48.86796,2.35908],[48.86831,2.35923],[48.86823,2.35972],[48.86846,2.3598],[48.86825,2.36114],[48.86831,2.36117],[48.86835,2.36257],[48.86851,2.36287],[48.86844,2.36319],[48.86858,2.36318],[48.86908,2.36434],[48.86977,2.36638],[48.87176,2.3647],[48.8718,2.36475],[48.87287,2.36391],[48.87299,2.36397],[48.87292,2.36383],[48.8738,2.36312],[48.8739,2.36308],[48.87395,2.36321],[48.87386,2.36311],[48.874,2.36351],[48.87104,2.3658],[48.87093,2.36569],[48.871,2.36583],[48.87092,2.36591],[48.86988,2.36673],[48.86908,2.36434],[48.86859,2.3632],[48.86844,2.36319],[48.86851,2.36287],[48.86835,2.36257],[48.86831,2.36117],[48.86825,2.36114],[48.86846,2.3598],[48.86823,2.35972],[48.86831,2.35923],[48.86796,2.35908],[48.86802,2.35875],[48.86741,2.35852],[48.86678,2.3581]],"pts":[[48.86697,2.35822],[48.86736,2.35849],[48.86793,2.35907],[48.86833,2.35976],[48.86847,2.363],[48.8697,2.36623],[48.8697,2.36623],[48.86847,2.363],[48.86833,2.35976],[48.86793,2.35907],[48.86736,2.35849],[48.86697,2.35822]],"sig":[[48.86847,2.363],[48.8697,2.36623],[48.8697,2.36623],[48.86847,2.363]]}], HOMELL=[48.866776,2.3581038];
+let rmap=null; const lay={};
+function isSig(r,p){ return r.sig.some(s=>s[0]===p[0]&&s[1]===p[1]); }
+function init(){
+  if(rmap||typeof L==="undefined"||typeof makeMap!=="function"||!document.getElementById("runmap")) return;
+  const box=document.getElementById("runmap"); if(!box.offsetHeight) return;
+  try{ rmap=makeMap("runmap"); rmap.setView(HOMELL,14); }catch(e){ rmap=null; return; }
+  L.marker(HOMELL,{icon:L.divIcon({className:"",html:'<div class="runhomepin">🏠</div>',iconSize:[0,0]}),keyboard:false,title:"Airbnb"}).addTo(rmap);
+  RUNS.forEach(r=>{
+    const line=L.polyline(r.geo,{color:"#94A3B8",weight:3.5,opacity:.55});
+    line.on("click",()=>pick(r.k,true)); line.addTo(rmap);
+    const dots=L.layerGroup(r.pts.map(p=>L.circleMarker(p,{radius:4,weight:1.5,color:"#fff",fillColor:isSig(r,p)?"#E03131":"#F59F00",fillOpacity:1,interactive:false})));
+    lay[r.k]={line,dots};
+  });
+  let k=null; try{ k=store.get("paris13.run"); }catch(e){}
+  pick(RUNS.some(r=>r.k===k)?k:RUNS[0].k,false);
+}
+function pick(k,scroll){
+  try{ store.set("paris13.run",k); }catch(e){}
+  document.querySelectorAll(".runcard").forEach(c=>c.classList.toggle("on",c.dataset.run===k));
+  document.querySelectorAll("[data-runshow]").forEach(b=>b.textContent=b.dataset.runshow===k?"On the map":"Show on map");
+  if(!rmap) return;
+  RUNS.forEach(r=>{ const l=lay[r.k], on=r.k===k; l.line.setStyle({color:on?"#0B7285":"#94A3B8",weight:on?6:3.5,opacity:on?.95:.5}); if(on){ l.line.bringToFront(); l.dots.addTo(rmap); } else rmap.removeLayer(l.dots); });
+  const r=RUNS.find(x=>x.k===k); if(r&&rmap.getSize().y>0) rmap.fitBounds(L.polyline(r.geo).getBounds(),{padding:[26,26]});
+  if(scroll){ const c=document.querySelector('.runcard[data-run="'+k+'"]'); if(c) c.scrollIntoView({block:"nearest",behavior:"smooth"}); }
+}
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-runshow]"); if(!b) return; pick(b.dataset.runshow,false); const m=document.getElementById("runmap"); if(m) m.scrollIntoView({block:"center",behavior:"smooth"}); });
+const go=()=>{ if(document.body.dataset.curtab!=="run") return; let n=0;
+  const tick=()=>{ if(document.body.dataset.curtab!=="run") return; init(); if(!rmap){ if(++n<20) setTimeout(tick,80); return; }
+    rmap.invalidateSize(); const c=document.querySelector(".runcard.on"); pick(c?c.dataset.run:RUNS[0].k,false); };
+  setTimeout(tick,60); };
+new MutationObserver(go).observe(document.body,{attributes:true,attributeFilter:["data-curtab"]}); go();
+window.RUN_DEBUG={get map(){return rmap},RUNS};
 })();
 
 </script>
