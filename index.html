@@ -1063,6 +1063,14 @@ html.js body[data-curtab] #bar > .tabmenu,html.js body[data-curtab] #bar > a.day
   html.live .mapframe.full .closefull{height:34px;padding:0 14px 0 12px;align-items:center;line-height:1}
   html.live .mapframe.full .maptools{left:12px!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important}
 }
+/* DONEBTN-FIX: phone check-mark button centred; title and "Pick for me" kept clear of it */
+@media (max-width:640px){
+  .donebtn{gap:0!important;line-height:0}
+  .donebtn > span{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .donebtn > .ico{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:0;transform:translate(-50%,-50%)}
+  li.st:has(> .donebtn) > h3{padding-right:44px}
+  li.st:has(> .donebtn) > .pickrow{margin-top:14px}
+}
 /* full screen: the map's column must sit above the sticky day bar (it made its own z-index:1 layer) */
 html.live body.lock .mapcol{z-index:3000!important}
 </style>
@@ -1092,7 +1100,7 @@ html.live body.lock .mapcol{z-index:3000!important}
     <div class="notes">
       <div class="note orderbanner" id="orderbanner" hidden><h4>Day order changed</h4><p id="ordertext"></p><button type="button" class="resetorder" data-resetorder>Back to the original order</button></div>
       
-      <div class="note"><h4><svg class="ico"><use href="#i-cal"/></svg>Closed on your dates</h4><ul id="closedlist"><li><strong>Saturday, Sept 26:</strong> Notre-Dame</li></ul></div>
+      
       <div class="note js-only" id="rankbox"><h4>🥐 Pastry scoreboard</h4><p id="ranking">Score each bakery on its card and your ranking shows up here.</p></div>
       <details class="note booknote"><summary><h4><svg class="ico"><use href="#i-ticket"/></svg>Book before you go <span class="count">(12)</span></h4></summary><div data-bookday="1"><h5 data-daylabel="1">Day 1, Friday, Sept 25</h5><ul class="bl"><li><span class="bl-name"><strong>Robert et Louise</strong> <small>Book ahead (if you pick it)</small></span><span class="bl-acts"><a href="tel:+33142785589" target="_blank" rel="noopener">Call to book</a><button type="button" class="bookchk js-only" data-booked="robert" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li></ul></div><div data-bookday="2"><h5 data-daylabel="2">Day 2, Saturday, Sept 26</h5><ul class="bl"><li><span class="bl-name"><strong>Notre-Dame</strong> <small>Book ahead</small></span><span class="bl-acts"><a href="https://resa.notredamedeparis.fr/" target="_blank" rel="noopener">Reserve a free slot</a><button type="button" class="bookchk js-only" data-booked="notredame" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Brasserie des Prés</strong> <small>Book ahead (if you pick it)</small></span><span class="bl-acts"><a href="https://lanouvellegarde.com/fr/" target="_blank" rel="noopener">Book a table</a><button type="button" class="bookchk js-only" data-booked="bdp" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Robert et Louise</strong> <small>Book ahead (if you pick it)</small></span><span class="bl-acts"><a href="tel:+33142785589" target="_blank" rel="noopener">Call to book</a><button type="button" class="bookchk js-only" data-booked="robert" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Arcane 17</strong> <small>Book ahead (if you pick it)</small></span><span class="bl-acts"><a href="https://arcane17paris.com/" target="_blank" rel="noopener">Book a table</a><button type="button" class="bookchk js-only" data-booked="arcane" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li></ul></div><div data-bookday="3"><h5 data-daylabel="3">Day 3, Sunday, Sept 27</h5><ul class="bl"><li><span class="bl-name"><strong>Notre-Dame</strong> <small>Book ahead</small></span><span class="bl-acts"><a href="https://resa.notredamedeparis.fr/" target="_blank" rel="noopener">Reserve a free slot</a><button type="button" class="bookchk js-only" data-booked="notredame" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Louvre</strong> <small>Tickets required</small></span><span class="bl-acts"><a href="https://www.ticketlouvre.fr/" target="_blank" rel="noopener">Book tickets</a><button type="button" class="bookchk js-only" data-booked="louvre" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Arc de Triomphe</strong> <small>Tickets required</small></span><span class="bl-acts"><a href="https://www.paris-arc-de-triomphe.fr/en" target="_blank" rel="noopener">Book tickets</a><button type="button" class="bookchk js-only" data-booked="arc" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Eiffel Tower</strong> <small>Tickets required</small></span><span class="bl-acts"><a href="https://www.toureiffel.paris/en" target="_blank" rel="noopener">Book tickets</a><button type="button" class="bookchk js-only" data-booked="eiffel" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Napoleon&#x27;s Tomb</strong> <small>Tickets required</small></span><span class="bl-acts"><a href="https://www.musee-armee.fr/en/" target="_blank" rel="noopener">Book tickets</a><button type="button" class="bookchk js-only" data-booked="napoleon" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Sphère</strong> <small>Book ahead (if you pick it)</small></span><span class="bl-acts"><a href="https://restaurantsphere.com/" target="_blank" rel="noopener">Book a table</a><button type="button" class="bookchk js-only" data-booked="sphere" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li><li><span class="bl-name"><strong>Lafayette&#x27;s</strong> <small>Book ahead (if you pick it)</small></span><span class="bl-acts"><a href="https://www.lafayettes-restaurant.com/" target="_blank" rel="noopener">Book a table</a><button type="button" class="bookchk js-only" data-booked="lafayettes" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Booked</span></button></span></li></ul></div><p class="bl-walk"><strong>No reservations, go early:</strong> Caveau de la Huchette, Chez Alain, Crêperie mon ami, Fer à Cheval, Photobooth, Relais de l&#x27;Entrecôte</p></details>
       
@@ -2202,9 +2210,18 @@ function makeMap(id){
   m.attributionControl.setPrefix(false); m.attributionControl.addAttribution("© OpenStreetMap");
   LABELS.forEach(([t,la,ln])=>L.marker([la,ln],{icon:L.divIcon({className:"",html:`<div class="hood">${t}</div>`,iconSize:[0,0]}),interactive:false,keyboard:false,zIndexOffset:-1000}).addTo(m));
   m.on("zoomend moveend",()=>declutter(m));
+  m.on("resize viewreset load",()=>hoods(m));
+  let hoodT; m.on("zoomend moveend",()=>{clearTimeout(hoodT); hoodT=setTimeout(()=>hoods(m),350);});
+  try{ document.fonts&&document.fonts.ready.then(()=>{hoods(m); setTimeout(()=>hoods(m),400);}); }catch(e){}
+  setTimeout(()=>hoods(m),1200);
   return m;
 }
+function hoods(m){ /* place names: drop any that would print on top of an earlier one */
+  const shown=[]; m.getContainer().querySelectorAll(".hood").forEach(h=>{ h.style.visibility=""; const rg=document.createRange(); rg.selectNodeContents(h); const r=rg.getBoundingClientRect(); if(!r.width) return;
+    if(shown.some(s=>!(r.right+6<s.left||r.left-6>s.right||r.bottom+2<s.top||r.top-2>s.bottom))) h.style.visibility="hidden"; else shown.push(r); });
+}
 function declutter(m){
+  hoods(m);
   const box=m.getContainer().getBoundingClientRect();
   m.getContainer().classList.toggle("lowz", m.getZoom()<14);
   const tips=[]; m.eachLayer(l=>{if(l.getTooltip&&l.getTooltip()&&l.getTooltip().options.permanent) tips.push(l);});
@@ -2304,7 +2321,7 @@ function fullscreen(i,on){
   const f=document.getElementById("frame"+i); f.classList.toggle("full",on); document.body.classList.toggle("lock",on);
   const m=maps[i], el=m.getContainer();
   if(on){el.dataset.h=el.style.height; el.style.height="100%";} else {el.style.height=el.dataset.h||"";}
-  setTimeout(()=>{m.invalidateSize(); if(on){m.dragging.enable();} else if(touch){m.dragging.disable();}
+  setTimeout(()=>{m.invalidateSize(); if(on){m.dragging.enable(); const tb=m.options.maxBounds; if(tb) m.setMinZoom(Math.max(12,m.getBoundsZoom(tb,true)));} else { m.setMinZoom(12); if(touch) m.dragging.disable(); }
     const b=CUR[i]||BND[i]; if(b) m.fitBounds(b,{paddingTopLeft:[28,on?80:64],paddingBottomRight:[28,on?90:66],maxZoom:16,animate:false});
     declutter(m);},60);
 }
